@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+html, body {
+    background-color: #D0D0D0;
+    color: #202020;
+}
+body {
+    padding: 100px;
+}
+
+a, a:visited {
+    color: #202020;
+}
+
+h1 {
+    margin-top: 20px !important;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
