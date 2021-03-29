@@ -1,22 +1,26 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, RouterStateSnapshot, CanDeactivate } from '@angular/router';
+import { Observable, of } from 'rxjs';
 import { IDirty } from '../model/IDirty'
+import { DialogService } from '../services/dialog.service';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class DirtyGuard implements CanDeactivate<IDirty> {
+    constructor(private dialogService: DialogService) { }
+
     canDeactivate(
-        component: IDirty, 
-        currentRoute: ActivatedRouteSnapshot, 
-        currentState: RouterStateSnapshot, 
-        nextState?: RouterStateSnapshot) : boolean {
-            if (component.isDirty()) {
-            if (confirm('If you navigate away your changes are not saved. Navigate away anyway?')) {
-                return true;
-            }
-            return false;
+        component: IDirty,
+        currentRoute: ActivatedRouteSnapshot,
+        currentState: RouterStateSnapshot,
+        nextState?: RouterStateSnapshot): Observable<boolean> {
+        if (component.isDirty()) {
+            return this.dialogService.confirm('Unsaved Changes', 'If you navigate away ' + 
+               'your latest changes will not be saved. Navigate away anyway?');
         }
-        return true;
+        else {
+            return of(true);
+        }
     }
 }

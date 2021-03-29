@@ -17,12 +17,11 @@ export class EditComponent implements IDirty {
     isDirty(): boolean {
         return this.inputForm.dirty == true;
     }
-    
-    getRef(): ViewContainerRef {
-        throw new Error('Method not implemented.');
-    }
 
     public onSubmit() {
+        // Store the input...
+
+        // Mark the form as pristine again
         this.inputForm.form.markAsPristine();
     }    
 }
