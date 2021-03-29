@@ -13,13 +13,15 @@ import { EditComponent } from './features/edit/edit.component';
 import { RouteNotFoundComponent } from './features/route-not-found/route-not-found.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ConfirmDialogComponent } from './core/dialogs/confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     EditComponent,
-    RouteNotFoundComponent
+    RouteNotFoundComponent,
+    ConfirmDialogComponent
   ],
   imports: [
     BrowserModule,
